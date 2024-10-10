@@ -1,0 +1,18 @@
+ /* DNI:71734714Z Miguel Gutiérrez García Uo295650*/
+
+
+
+header{
+   display: flex; 
+   align-content: stretch;
+   align-items: baseline;
+   margin: auto;
+}
+
+header nav {
+   display: flex; 
+   gap: 40px ;
+   margin:auto;
+   
+}
+

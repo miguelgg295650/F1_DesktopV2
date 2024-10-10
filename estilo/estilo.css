@@ -1,0 +1,90 @@
+ /* DNI:71734714Z Miguel Gutiérrez García Uo295650*/
+ /*
+    Paleta de colores:
+    #59981A
+    #ECF87F
+    #81B622
+    #141B03
+    #323E3C
+ */
+ header{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #81B622;
+    color: #141B03
+ }
+ body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #ECF87F;
+    color: #141B03
+    
+ }
+ /*
+    Si hay warnings al validar, explicar aqui con comentarios
+ */
+ body a{
+    color: #171C1A
+ }
+
+ body > p:first-of-type{
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ @media screen and (max-width: 800px) { /*Migas solo para pantallas mayores*/
+   body > p:first-of-type{
+      display: none;
+  }
+ }
+
+
+a:hover {
+   font-weight: bold;
+   color: #7c3b3b
+ }
+
+ ul ul, ol ul {
+   list-style-type: square;
+   font-size: 20px; 
+}
+
+li{
+  font-size: 18px;
+}
+
+dt {
+   font-weight: bold; 
+   font-size: 18px; 
+   padding: 5px;
+}
+
+dd {
+   margin-left: 20px; 
+   font-size: 16px; 
+   color: #6e6e6e; 
+}
+
+table {
+   width: 50%;
+   border-collapse: collapse; /* Elimina los espacios entre los bordes */
+   margin: auto;
+   border: 2px solid #2c3e50; /* Borde general para la tabla */
+}
+
+video {
+   width: 70%;
+   height:auto;
+   margin: auto;
+  }
+
+audio{
+   width: 70%;
+}
+
+img{
+      width: auto;
+      height:auto;
+      margin: auto;
+   
+}
+
+a.active{
+   color: #e90505;
+}
