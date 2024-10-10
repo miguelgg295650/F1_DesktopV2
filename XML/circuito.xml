@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <titulo>Circuito de las Américas</titulo>
+    <longitud_circuito>5513 metros</longitud_circuito>
+    <anchura_media>15 metros</anchura_media>
+    <fecha>20 de Octubre de 2024</fecha>
+    <hora_inicio>21:00 en España</hora_inicio>
+    <vueltas>20</vueltas>
+    <localidad>Austin, Texas</localidad>
+    <pais>Estados Unidos</pais>
+    <coordenadas>
+        <longitud>-97.6419</longitud>
+        <latitud>30.1342</latitud>
+        <altitud>160</altitud>
+    </coordenadas>
+
+    <galeria_fotos>
+        <foto>multimedia/circuitoCurva.jpg</foto>
+        <foto>multimedia/bandera.jpg</foto>
+        <foto>multimedia/skyview.jpg</foto>
+        <foto>multimedia/curva.jpg</foto>
+        <foto>multimedia/recta.jpg</foto>
+    </galeria_fotos>
+
+    <galeria_videos>
+        <video>mutimedia/curvaCota</video>
+    </galeria_videos>
+
+    <referencias>
+        <referencia>https://www.formula1.com/</referencia>
+        <referencia>https://circuitomotor.com/estados-unidos/circuito-de-austin/</referencia>
+        <referencia>https://es.wikipedia.org/wiki/Circuito_de_las_Am%C3%A9ricas</referencia>
+    </referencias>
+
+</circuito>
