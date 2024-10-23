@@ -3,27 +3,23 @@ import os
 
 
 def read_xml(file_path):
-    try:
-        if not os.path.isfile(file_path):
-            raise FileNotFoundError(f"El archivo {file_path} no existe en el directorio actual.")
-        
-        tree = ET.parse(file_path)
-        root = tree.getroot()
+    if not os.path.isfile(file_path):
+        print(f"El archivo {file_path} no encontrado.")
+    
+    tree = ET.parse(file_path)
+    root = tree.getroot()
 
-        namespace = {'ns': 'http://www.uniovi.es'}
+    namespace = {'ns': 'http://www.uniovi.es'}
 
-        coordenadas = []
-        for tramo in root.findall('.//ns:tramo', namespace):
-            longitud = tramo.find('.//ns:longitud', namespace).text
-            latitud = tramo.find('.//ns:latitud', namespace).text
-            altitud = tramo.find('.//ns:altitud', namespace).text
-            coordenadas.append(f"{longitud},{latitud},{altitud}")
-        
-        return coordenadas
-    except ET.ParseError as e:
-        print(f"Error al parsear el archivo XML: {e}")
-    except Exception as e:
-        print(f"Ocurrió un error: {e}")
+    coordenadas = []
+    for tramo in root.findall('.//ns:tramo', namespace):
+        longitud = tramo.find('.//ns:longitud', namespace).text
+        latitud = tramo.find('.//ns:latitud', namespace).text
+        altitud = tramo.find('.//ns:altitud', namespace).text
+        coordenadas.append(f"{longitud},{latitud},{altitud}")
+    
+    return coordenadas
+   
 
 def write_kml(coordenadas, output_kml):
     with open(output_kml, 'w') as kml_file:
@@ -32,14 +28,12 @@ def write_kml(coordenadas, output_kml):
         kml_file.write('<kml xmlns="http://www.opengis.net/kml/2.2">\n')
         kml_file.write('  <Document>\n')
         kml_file.write('    <name>Circuito de las Américas</name>\n')
-        
         kml_file.write('    <Style id="lineStyle">\n')
         kml_file.write('      <LineStyle>\n')
-        kml_file.write('        <color>ff0000ff</color> <!-- Rojo -->\n')
-        kml_file.write('        <width>4</width> <!-- Grosor de la línea -->\n')
+        kml_file.write('        <color>ff0000ff</color>\n')
+        kml_file.write('        <width>4</width> \n')
         kml_file.write('      </LineStyle>\n')
         kml_file.write('    </Style>\n')
-
         kml_file.write('    <Placemark>\n')
         kml_file.write('      <styleUrl>#lineStyle</styleUrl>\n')
         kml_file.write('      <LineString>\n')
