@@ -89,3 +89,13 @@ img{
 a.active{
    color: #e90505;
 }
+
+img.FotoInicio {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   object-fit: cover;
+   z-index: -1; /* Envía la imagen al fondo */
+}
