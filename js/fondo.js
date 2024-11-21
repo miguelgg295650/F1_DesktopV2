@@ -1,17 +1,22 @@
 class Fondo {
+    constructor(nombreCircuito,nombrePais, nombreCapital){
+        this.nombrePais = "Estados Unidos";
+        this.nombreCircuito = "Circuito de las Americas";
+        this.nombreCapital = "Washington DC"
+    }
     getImages() {
-        console.log("Image URL:"); 
         const flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        const tags = `Formula1,${this.nombreCircuito},${this.nombreCapital},${this.nombrePais}`;
+        
         $.getJSON(flickrAPI, {
-            tags: "landscape",
+            tags: tags,
             tagmode: "any",
             format: "json",
         }).done(function(data) {
             if (data.items.length > 0) {
                 const r = Math.floor(Math.random() * data.items.length);
 
-                const imageUrl = data.items[r].media.m;
-
+                const imageUrl = data.items[r].media.m.replace('_m', '_b');
                 if (imageUrl) {
                     
                     $('body').css('background-image', 'url(' + imageUrl + ')');
