@@ -33,6 +33,8 @@ class Memoria {
   unflipCards() {
     this.lockBoard = true;
     setTimeout(() => {
+      this.firstCard.removeAttribute('data-state');
+      this.secondCard.removeAttribute('data-state');
       this.firstCard.flipped = false;
       this.secondCard.flipped = false;
       this.resetBoard();
@@ -47,7 +49,14 @@ class Memoria {
 
   
   checkForMatch() {
-    this.firstCard.card === this.secondCard.card ? this.disableCards() : this.unflipCards();
+    const firstCardElement = this.firstCard.dataset.element;
+    const secondCardElement = this.secondCard.dataset.element;
+  
+    if (firstCardElement === secondCardElement) {
+      this.disableCards();
+    } else {
+      this.unflipCards();
+    }
   }
 
   disableCards() {
@@ -80,14 +89,24 @@ class Memoria {
       img.style.display = 'none';
       article.appendChild(img);
 
-      // Llamar a handleCardClick al hacer clic en el artículo
+
       article.addEventListener('click', () => {
-        this.setAttribute('data-state', 'flip');
-        
-        setTimeout(() => {
-          this.removeAttribute('data-state');
-        }, 2500);
+        if (this.lockBoard || article.dataset.state === 'revealed') return;
+      
+        article.querySelector('.card-image').style.display = 'block'; // Mostrar imagen
+        article.dataset.state = 'flip'; // Girar carta
+      
+        if (!this.hasFlippedCard) {
+          this.hasFlippedCard = true;
+          this.firstCard = article;
+        } else {
+          this.hasFlippedCard = false;
+          this.secondCard = article;
+      
+          this.checkForMatch();
+        }
       });
+      
 
       gameSection.appendChild(article);
     });

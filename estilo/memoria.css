@@ -26,7 +26,7 @@ body {
       height: 100%;
       position: absolute;
       border-radius: 5px;
-      background: #1C7CCC;
+      background: #0b6100;
       backface-visibility: hidden;
   }
   
@@ -41,4 +41,20 @@ body {
       transform: rotateY(180deg);
   }
 
- 
+  .memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 10px; /* Espacio entre las cartas */
+    justify-content: center; /* Centrar las cartas horizontalmente */
+    margin: 20px auto; /* Espaciado superior/inferior */
+    max-width: 800px; /* Limitar el ancho máximo */
+  }
+  
+  .memory-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
